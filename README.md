@@ -5,20 +5,25 @@ Static site, no build step, no JavaScript, no cookies. Style follows the game's 
 | Page | File | App Store Connect field |
 |---|---|---|
 | Home | `index.html` | Marketing URL |
-| Support (contact + FAQ) | `support.html` | Support URL (required) |
+| Support (FAQ) | `support.html` | Support URL (required) |
+| Contact | `contact.html` | — |
 | Privacy Policy | `privacy.html` | Privacy Policy URL (required) |
 | Terms of Use | `terms.html` | — (licence = Apple Standard EULA, linked from the page) |
 | Not found | `404.html` | — |
 
 Links between pages are relative (`privacy.html`), so the site works on any host and in a sub-path. Canonical URLs, `sitemap.xml` and `robots.txt` assume **https://hiddenpace.github.io** — change them if the site lives elsewhere.
 
+App Store link everywhere is **`https://apps.apple.com/app/id6818750130`** — no country code (`/us/`) and no name slug, so Apple opens the visitor's own storefront and language. Don't paste the `/us/app/hidden-pace-running-career/…` share link. The download badge is drawn in HTML/CSS (`.store-badge`); it can be swapped for Apple's official artwork from the Apple Marketing Tools site, saved locally in `images/`.
+
 `_headers` (security headers, image caching) is used by Cloudflare Pages / Netlify; `.nojekyll` keeps GitHub Pages from running Jekyll. Images: `icon.png` from `Tools/app-icon/preview.png`, `images/*.jpg` from `appstore/en/screenshots/` (600 px, `sips`), `images/ridges.svg` — the game's ridge layers.
 
 ## Publish
 
-**Cloudflare Pages** (like afterlap.app): new project → upload the `site/` folder or connect the repo with build output directory `site`, no build command. Add the custom domain `hiddenpace.app`. Clean URLs (`/privacy`) work out of the box.
+Live on **GitHub Pages**: account `hiddenpace` (hiddenpace.app@gmail.com), repo **`hiddenpace.github.io`** (public), Settings → Pages → Deploy from a branch → `main` → `/ (root)`. The repo name must be exactly `<user>.github.io`, otherwise GitHub serves it under `/<repo>/`.
 
-**GitHub Pages**: Pages needs a public repo on the free plan. Either publish this repo with "Deploy from a branch → main → /site" (requires moving the folder to `/docs` or using an Actions workflow), or copy `site/` into a small public repo (e.g. `jacifkusto/hiddenpace-site`). URLs: `https://jacifkusto.github.io/hiddenpace-site/privacy`.
+To update: in that repo, Add file → Upload files → drag the changed files from `site/` (keep `images/` as a folder) → Commit. GitHub republishes in 1–3 minutes (Actions tab). Hidden files (`.nojekyll`, `_headers`) and this README aren't needed there.
+
+Alternative later: Cloudflare Pages with a custom domain — upload `site/`, no build command; `_headers` is used there.
 
 ## After publishing
 

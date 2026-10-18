@@ -84,6 +84,24 @@ img { max-width: 100%; height: auto; display: block; }
 .button svg { width: 20px; height: 20px; fill: currentColor; }
 .note { color: var(--ink-3); font-size: 14px; }
 
+/* App Store badge — black, Apple logo, two-line label (Apple marketing guidelines style) */
+.store-badge {
+  display: inline-flex; align-items: center; gap: 10px; padding: 9px 20px 9px 16px; border-radius: 12px;
+  background: #000; color: #fff; text-decoration: none; border: 1px solid #A6A6A6; line-height: 1;
+}
+.store-badge:hover { color: #fff; background: #1A1A1A; }
+.store-badge:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.store-badge svg { width: 30px; height: 30px; fill: currentColor; flex: 0 0 auto; }
+.store-badge span { display: flex; flex-direction: column; gap: 3px; font-size: 25px; font-weight: 600; letter-spacing: -0.02em; }
+.store-badge small { font-size: 12px; font-weight: 500; letter-spacing: 0.01em; }
+
+/* Closing download block */
+.download { background: var(--card); border-radius: 28px; padding: 32px 36px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; box-shadow: 0 1px 0 var(--hairline); }
+.download img { width: 96px; height: 96px; border-radius: 22px; }
+.download h2 { margin: 0 0 6px; }
+.download p { margin: 0; color: var(--ink-2); }
+.download > div { flex: 1 1 260px; }
+
 /* Sections */
 section { max-width: var(--max); margin: 0 auto; padding: 56px 24px; }
 .eyebrow { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }

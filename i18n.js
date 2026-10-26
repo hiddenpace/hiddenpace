@@ -40,6 +40,24 @@
   };
 
   const generic = copy.en;
+  const packsLabels = {da:"Karrierepakker",de:"Karrierepakete",en:"Career Packs",es:"Packs de carrera",fi:"Urapaketit",fr:"Packs de carrière",it:"Pacchetti carriera",ja:"キャリアパック",ko:"커리어 팩",nl:"Carrièrepakketten",pl:"Pakiety kariery","pt-PT":"Packs de carreira",ru:"Карьерные паки",uk:"Кар’єрні паки","zh-Hans":"生涯包"};
+  const packsTeasers = {
+    en:["Career Packs","Run a different story","Take the tasuki in an Ekiden team career, or begin with a comeback, an altitude upbringing or a late turn toward the 100-mile podium.","Explore Career Packs"],
+    ja:["キャリアパック","いつもとは違う競技人生へ","駅伝チームの一員としてたすきをつなぐ。けがからの復帰、高地育ち、30歳から100マイル表彰台を目指す物語も選べます。","キャリアパックを見る"],
+    de:["Karrierepakete","Eine andere Geschichte laufen","Übernimm den Tasuki in einer Ekiden-Teamkarriere oder starte ein Comeback, in der Höhe oder auf dem Weg zum 100-Meilen-Podium.","Karrierepakete entdecken"],
+    fr:["Packs de carrière","Courez une autre histoire","Prenez le tasuki dans une carrière d’équipe Ekiden, revenez de blessure, grandissez en altitude ou visez le podium sur 100 miles.","Découvrir les packs"],
+    es:["Packs de carrera","Corre otra historia","Recibe el tasuki en una carrera de equipo Ekiden, vuelve tras una lesión, crece en altitud o busca el podio de 100 millas.","Ver los packs"],
+    it:["Pacchetti carriera","Corri una storia diversa","Ricevi il tasuki in una carriera Ekiden, torna dopo un infortunio, cresci in altura o punta al podio sulle 100 miglia.","Scopri i pacchetti"],
+    ru:["Карьерные паки","Другая беговая история","Примите тасуки в командной карьере экиден, вернитесь после травмы, вырастите в горах или идите к подиуму на 100 милях.","Смотреть карьерные паки"],
+    uk:["Кар’єрні паки","Інша бігова історія","Прийміть тасукі в командній кар’єрі екіден, поверніться після травми, виростіть у горах або йдіть до подіуму на 100 милях.","Переглянути паки"],
+    ko:["커리어 팩","새로운 이야기를 달리세요","역전경주 팀에서 다스키를 이어받거나, 부상 복귀·고지대 성장·100마일 포디움을 향한 커리어를 시작하세요.","커리어 팩 보기"],
+    "zh-Hans":["生涯包","跑出另一段人生","在驿传团队生涯中接过襷带，或从伤病复出、高原成长，乃至向百英里领奖台发起挑战。","查看生涯包"],
+    pl:["Pakiety kariery","Pobiegnij inną historię","Przejmij tasuki w drużynowej karierze Ekiden albo wróć po kontuzji, dorastaj na wysokości czy celuj w podium 100 mil.","Poznaj pakiety"],
+    nl:["Carrièrepakketten","Loop een ander verhaal","Neem de tasuki over in een Ekiden-teamcarrière, keer terug na een blessure, groei op hoogte of mik op het podium van 100 mijl.","Bekijk carrièrepakketten"],
+    "pt-PT":["Packs de carreira","Corre uma história diferente","Recebe o tasuki numa carreira de equipa Ekiden, regressa de lesão, cresce em altitude ou procura o pódio das 100 milhas.","Explorar os packs"],
+    da:["Karrierepakker","Løb en anden historie","Tag imod tasukien i en Ekiden-holdkarriere, vend tilbage efter en skade, voks op i højden eller jagt en 100-mile-podieplads.","Se karrierepakker"],
+    fi:["Urapaketit","Juokse erilainen tarina","Ota tasuki vastaan Ekiden-joukkueuralla, palaa loukkaantumisesta, kasva korkealla tai tavoittele 100 mailin palkintopallia.","Tutustu urapaketteihin"]
+  };
   const tagClasses = ["orange", "blue", "green", "blue", "green", "ochre"];
   const supported = Object.keys(languages);
   const normalize = value => {
@@ -62,12 +80,13 @@
   function applyLanguage(code) {
     const strings = {...generic, ...(copy[code] || {})};
     const values = {
-      navGame: strings.nav[0], navFair: strings.nav[1], navSupport: strings.nav[2], navContact: strings.nav[3], navPrivacy: strings.nav[4], navDownload: strings.nav[5],
+      navGame: strings.nav[0], navPacks: packsLabels[code], navFair: strings.nav[1], navSupport: strings.nav[2], navContact: strings.nav[3], navPrivacy: strings.nav[4], navDownload: strings.nav[5],
       language: strings.language, heroTitle: strings.heroTitle, heroLead: strings.heroLead, note: strings.note,
       gameEyebrow: strings.gameEyebrow, gameTitle: strings.gameTitle, gameLead: strings.gameLead,
       cards: cardHTML(strings.cards), fairTitle: strings.fairTitle, fairList: strings.fair.map(item => `<li>${item}</li>`).join(""),
       extras: extraHTML(strings.extras), downloadTitle: strings.downloadTitle, downloadLead: strings.downloadLead,
-      storeBadge: `<small>${strings.store}</small>App Store`
+      storeBadge: `<small>${strings.store}</small>App Store`,
+      packsTeaser: `<div class="pack-feature"><div><div class="eyebrow">${packsTeasers[code][0]}</div><h2>${packsTeasers[code][1]}</h2><p>${packsTeasers[code][2]}</p><a class="button" href="${code === "ja" ? "ja/ekiden-career-pack.html" : "career-packs.html"}">${packsTeasers[code][3]}</a></div><img src="images/${code}/06-team.jpg" width="600" height="1304" loading="lazy" alt="${packsTeasers[code][1]}"></div>`
     };
     document.documentElement.lang = code;
     const localizedHome = document.querySelector('[data-i18n="heroTitle"]');
@@ -76,6 +95,8 @@
     if (localizedHome && meta) meta.content = strings.description || strings.heroLead;
     document.querySelectorAll("[data-i18n]").forEach(element => { if (values[element.dataset.i18n]) element.textContent = values[element.dataset.i18n]; });
     document.querySelectorAll("[data-i18n-html]").forEach(element => { if (values[element.dataset.i18nHtml]) element.innerHTML = values[element.dataset.i18nHtml]; });
+    const packsLink = document.querySelector('[data-i18n="navPacks"]');
+    if (packsLink) packsLink.href = code === "ja" ? "ja/ekiden-career-pack.html" : "career-packs.html";
     document.querySelectorAll("[data-shot]").forEach(image => {
       image.src = `images/${code}/${image.dataset.shot}.jpg`;
       image.alt = strings.gameTitle;

@@ -9,6 +9,8 @@ Static site, no build step and no cookies. A small dependency-free `i18n.js` det
 | Contact | `contact.html` | — |
 | Privacy Policy | `privacy.html` | Privacy Policy URL (required) |
 | Terms of Use | `terms.html` | — (licence = Apple Standard EULA, linked from the page) |
+| Career Packs | `career-packs.html` | English overview of the four story-led packs |
+| Ekiden (Japanese) | `ja/ekiden-career-pack.html` | Static, indexable Japanese landing page for 駅伝 searches |
 | Not found | `404.html` | — |
 
 Links between pages are relative (`privacy.html`), so the site works on any host and in a sub-path. Canonical URLs, `sitemap.xml` and `robots.txt` assume **https://hiddenpace.github.io** — change them if the site lives elsewhere.

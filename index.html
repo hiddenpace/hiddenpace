@@ -19,6 +19,7 @@
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <script src="i18n.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,64 +38,65 @@
     <nav class="nav">
       <a class="brand" href="./"><img src="icon.png" alt=""><span>Hidden Pace</span></a>
       <ul class="nav-links">
-        <li><a href="#features">Game</a></li>
-        <li><a href="#fair">Fair play</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="#download">Download</a></li>
+        <li><a href="#features" data-i18n="navGame">Game</a></li>
+        <li><a href="#fair" data-i18n="navFair">Fair play</a></li>
+        <li><a href="support.html" data-i18n="navSupport">Support</a></li>
+        <li><a href="contact.html" data-i18n="navContact">Contact</a></li>
+        <li><a href="privacy.html" data-i18n="navPrivacy">Privacy</a></li>
+        <li><a href="#download" data-i18n="navDownload">Download</a></li>
       </ul>
+      <label class="language-picker"><span class="visually-hidden" data-i18n="language">Language</span><select data-language-picker aria-label="Language"></select></label>
     </nav>
     <div class="hero-inner">
       <div>
         <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
-        <h1>You don't pick your event. <em>You discover it.</em></h1>
-        <p class="lead">A running career game for iPhone and iPad. Start as an unknown with hidden strengths, plan every week, race it live — and find out whether you're a miler, a marathoner or a mountain runner.</p>
+        <h1 data-i18n-html="heroTitle">You don't pick your event. <em>You discover it.</em></h1>
+        <p class="lead" data-i18n="heroLead">A running career game for iPhone and iPad. Start as an unknown with hidden strengths, plan every week, race it live — and find out whether you're a miler, a marathoner or a mountain runner.</p>
         <div class="cta">
           <a class="store-badge" href="https://apps.apple.com/app/id6818750130" aria-label="Download Hidden Pace on the App Store">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-            <span><small>Download on the</small>App Store</span>
+            <span data-i18n-html="storeBadge"><small>Download on the</small>App Store</span>
           </a>
-          <span class="note">Free to play · No ads · Plays offline</span>
+          <span class="note" data-i18n="note">Free to play · No ads · Plays offline</span>
         </div>
       </div>
-      <div class="hero-shot"><img src="images/01-games-gold.jpg" width="600" height="1304" alt="From nobody to champion: a marathon gold medal and the podium, with your runner on the top step."></div>
+      <div class="hero-shot"><img src="images/01-games-gold.jpg" data-shot="01-games-gold" width="600" height="1304" alt="From nobody to champion"></div>
     </div>
   </header>
 
   <main>
     <section id="features">
-      <div class="eyebrow">The game</div>
-      <h2>A whole career, one week at a time</h2>
-      <p class="section-lead">Every week you set the training and choose the races. Every race tells you a little more about the athlete you really have.</p>
-      <div class="grid">
-        <div class="card"><span class="tag orange">Discover</span><h3>Hidden talent</h3><p>Attributes and traits are revealed by racing, not menus. Expected vs. actual separates a good day from real ability.</p></div>
-        <div class="card"><span class="tag blue">Plan</span><h3>One week, one decision</h3><p>Volume and key sessions, tapers and altitude camps — or let the coach plan. Fatigue, form and injury risk behave like a real training block.</p></div>
-        <div class="card"><span class="tag green">Race</span><h3>Live tactics</h3><p>Push, hold or ease while the race unfolds. Sit in the pack and kick, or lead from the gun. Rivals remember every meeting.</p></div>
-        <div class="card"><span class="tag blue">Climb</span><h3>To the world stage</h3><p>Regional cup, national series, national and world rankings, team selection and championships on a living calendar.</p></div>
-        <div class="card"><span class="tag green">Measure</span><h3>Athlete Lab</h3><p>VO2max, VDOT, lactate thresholds, heart-rate zones, HRV and race predictions — calibrated against real-world records.</p></div>
-        <div class="card"><span class="tag ochre">Remember</span><h3>Legacy</h3><p>Medals, cups and legendary trophies, the Hall of Fame, Masters age groups, posters, a Legacy Book and the What If? Lab.</p></div>
+      <div class="eyebrow" data-i18n="gameEyebrow">The game</div>
+      <h2 data-i18n="gameTitle">A whole career, one week at a time</h2>
+      <p class="section-lead" data-i18n="gameLead">Every week you set the training and choose the races. Every race tells you a little more about the athlete you really have.</p>
+      <div class="grid" data-i18n-html="cards">
+        <div class="card" data-i18n-html="card1"><span class="tag orange">Discover</span><h3>Hidden talent</h3><p>Attributes and traits are revealed by racing, not menus. Expected vs. actual separates a good day from real ability.</p></div>
+        <div class="card" data-i18n-html="card2"><span class="tag blue">Plan</span><h3>One week, one decision</h3><p>Volume and key sessions, tapers and altitude camps — or let the coach plan. Fatigue, form and injury risk behave like a real training block.</p></div>
+        <div class="card" data-i18n-html="card3"><span class="tag green">Race</span><h3>Live tactics</h3><p>Push, hold or ease while the race unfolds. Sit in the pack and kick, or lead from the gun. Rivals remember every meeting.</p></div>
+        <div class="card" data-i18n-html="card4"><span class="tag blue">Climb</span><h3>To the world stage</h3><p>Regional cup, national series, national and world rankings, team selection and championships on a living calendar.</p></div>
+        <div class="card" data-i18n-html="card5"><span class="tag green">Measure</span><h3>Athlete Lab</h3><p>VO2max, VDOT, lactate thresholds, heart-rate zones, HRV and race predictions — calibrated against real-world records.</p></div>
+        <div class="card" data-i18n-html="card6"><span class="tag ochre">Remember</span><h3>Legacy</h3><p>Medals, cups and legendary trophies, the Hall of Fame, Masters age groups, posters, a Legacy Book and the What If? Lab.</p></div>
       </div>
     </section>
 
     <section aria-label="Screenshots">
       <div class="shots">
-        <img src="images/02-live-race.jpg" width="600" height="1304" loading="lazy" alt="Live 5K race: pace, reserve and the Ease, Hold or Push decision.">
-        <img src="images/03-result.jpg" width="600" height="1304" loading="lazy" alt="Race result: first place, course best and the podium.">
-        <img src="images/04-athlete.jpg" width="600" height="1304" loading="lazy" alt="Locker: an athlete in legendary gold racing kit and what the gear gives.">
-        <img src="images/05-week-plan.jpg" width="600" height="1304" loading="lazy" alt="Week plan with fatigue, weekly volume and key sessions, or let the coach plan.">
-        <img src="images/06-team.jpg" width="600" height="1304" loading="lazy" alt="National team selection for the World Championships and head-to-head records with rivals.">
-        <img src="images/07-trophies.jpg" width="600" height="1304" loading="lazy" alt="Trophy cabinet with medals and cups.">
-        <img src="images/08-lab.jpg" width="600" height="1304" loading="lazy" alt="Athlete Lab with VO2max, VDOT, heart rates and training zones.">
-        <img src="images/09-legacy.jpg" width="600" height="1304" loading="lazy" alt="Legacy: a retired champion's career summary in the Hall of Fame.">
+        <img src="images/02-live-race.jpg" data-shot="02-live-race" width="600" height="1304" loading="lazy" alt="Live race">
+        <img src="images/03-result.jpg" data-shot="03-result" width="600" height="1304" loading="lazy" alt="Race result">
+        <img src="images/04-athlete.jpg" data-shot="04-athlete" width="600" height="1304" loading="lazy" alt="Athlete">
+        <img src="images/05-week-plan.jpg" data-shot="05-week-plan" width="600" height="1304" loading="lazy" alt="Week plan">
+        <img src="images/06-team.jpg" data-shot="06-team" width="600" height="1304" loading="lazy" alt="National team">
+        <img src="images/07-trophies.jpg" data-shot="07-trophies" width="600" height="1304" loading="lazy" alt="Trophies">
+        <img src="images/08-lab.jpg" data-shot="08-lab" width="600" height="1304" loading="lazy" alt="Athlete Lab">
+        <img src="images/09-legacy.jpg" data-shot="09-legacy" width="600" height="1304" loading="lazy" alt="Legacy">
       </div>
     </section>
 
     <section id="fair">
       <div class="fair">
         <div class="stripe" aria-hidden="true"><span></span><span></span><span></span></div>
-        <h2 style="margin-top:18px">Fair by design</h2>
-        <ul>
+        <h2 style="margin-top:18px" data-i18n="fairTitle">Fair by design</h2>
+        <ul data-i18n-html="fairList">
           <li>A full career is free to play, from the first race to retirement and the Hall of Fame</li>
           <li>No timers, no energy, no ads, no subscriptions, no expiring offers</li>
           <li>Modules, gear, posters and extra career slots unlock with Laurels you earn by playing</li>
@@ -107,10 +109,10 @@
     </section>
 
     <section>
-      <div class="grid">
-        <div class="card"><h3>100 Game Center achievements</h3><p>From your first finish to goals that take decades of careers.</p></div>
-        <div class="card"><h3>Offline, with optional iCloud</h3><p>Your careers live on your device; turn on iCloud sync to continue on another one.</p></div>
-        <div class="card"><h3>15 languages</h3><p>English, Danish, German, Spanish, Finnish, French, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Russian, Ukrainian and Chinese (Simplified).</p></div>
+      <div class="grid" data-i18n-html="extras">
+        <div class="card" data-i18n-html="extra1"><h3>200 Game Center achievements</h3><p>From your first finish to goals that take decades of careers.</p></div>
+        <div class="card" data-i18n-html="extra2"><h3>Offline, with optional iCloud</h3><p>Your careers live on your device; turn on iCloud sync to continue on another one.</p></div>
+        <div class="card" data-i18n-html="extra3"><h3>15 languages</h3><p>English, Danish, German, Spanish, Finnish, French, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Russian, Ukrainian and Chinese (Simplified).</p></div>
       </div>
     </section>
 
@@ -118,12 +120,12 @@
       <div class="download">
         <img src="icon.png" width="96" height="96" alt="">
         <div>
-          <h2>Your first race is this week</h2>
-          <p>Free on iPhone and iPad. No account needed — just lace up.</p>
+          <h2 data-i18n="downloadTitle">Your first race is this week</h2>
+          <p data-i18n="downloadLead">Free on iPhone and iPad. No account needed — just lace up.</p>
         </div>
         <a class="store-badge" href="https://apps.apple.com/app/id6818750130" aria-label="Download Hidden Pace on the App Store">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-          <span><small>Download on the</small>App Store</span>
+          <span data-i18n-html="storeBadge"><small>Download on the</small>App Store</span>
         </a>
       </div>
     </section>

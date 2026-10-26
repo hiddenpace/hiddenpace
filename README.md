@@ -1,6 +1,6 @@
 # Hidden Pace — website
 
-Static site, no build step, no JavaScript, no cookies. Style follows the game's "Alpine '72" tokens (`hiddenpace/Design/Game/GameTheme.swift`).
+Static site, no build step and no cookies. A small dependency-free `i18n.js` detects the browser language, remembers an explicit choice in `localStorage`, and swaps localized home-page copy and screenshots. Style follows the game's "Alpine '72" tokens (`hiddenpace/Design/Game/GameTheme.swift`).
 
 | Page | File | App Store Connect field |
 |---|---|---|
@@ -15,7 +15,9 @@ Links between pages are relative (`privacy.html`), so the site works on any host
 
 App Store link everywhere is **`https://apps.apple.com/app/id6818750130`** — no country code (`/us/`) and no name slug, so Apple opens the visitor's own storefront and language. Don't paste the `/us/app/hidden-pace-running-career/…` share link. The download badge is drawn in HTML/CSS (`.store-badge`); it can be swapped for Apple's official artwork from the Apple Marketing Tools site, saved locally in `images/`.
 
-`_headers` (security headers, image caching) is used by Cloudflare Pages / Netlify; `.nojekyll` keeps GitHub Pages from running Jekyll. Images: `icon.png` from `Tools/app-icon/preview.png`, `images/*.jpg` from `appstore/en/screenshots/` (600 px, `sips`), `images/ridges.svg` — the game's ridge layers.
+Google Search Console: verified with the `google-site-verification` meta tag in `index.html` (URL-prefix property `https://hiddenpace.github.io/`). Keep the tag — removing it un-verifies the site.
+
+`_headers` (security headers, image caching) is used by Cloudflare Pages / Netlify; `.nojekyll` keeps GitHub Pages from running Jekyll. Localized screenshots in `images/<locale>/` come from `appstore/<locale>/screenshots/`; `images/ridges.svg` contains the game's ridge layers.
 
 ## Publish
 
